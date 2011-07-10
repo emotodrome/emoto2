@@ -1,0 +1,101 @@
+		//		}
+
+		//    TextView  tv = new TextView(this);
+		/*
+    logThis("Log 1\n");
+    tv.setText(stringFromJNI());
+    logThis("Log 2\n");
+		 */
+		//    setContentView(tv);
+
+		//		locationManager = new MyLocationManager(this);
+		//		System.out.println("Initial Lat: " + locationManager.getLatitude());
+		//		System.out.println("Initial Long: " + locationManager.getLongitude());
+		//
+		//
+		//
+		//		imageManager = new ImageManager();
+		//		imageManager.DownloadFromUrl("http://maps.google.com/maps/api/staticmap?center="+locationManager.getLatitude()+","+locationManager.getLongitude()+"&zoom="+ZOOM+"&size=320x480&maptype=satellite&key=MyGoogleMapsAPIKey&sensor=true", "neukom_image.jpeg");
+		//		System.out.println("Return from image manager download.");
+		//
+		//
+		//		TextView jpgName = (TextView)findViewById(R.id.jpgname);
+		//		System.out.println("jpg name is " + jpgName);
+		//		//    ImageView jpgView = (ImageView)findViewById(R.id.jpgview);
+		//		ImageView jpgView = (ImageView)findViewById(R.id.jpgview);
+		//		System.out.println("jpg view is " + jpgView);
+		//
+		//		if(jpgName == null || jpgView == null) {
+		//			System.out.println("Views are null");
+		//		}
+		//		else {
+		//			String myJpgPath = "/sdcard/neukom_image.jpeg"; //UPDATE WITH YOUR OWN JPG FILE
+		//			System.out.println("set jpg name path");
+		//			jpgName.setText(myJpgPath);
+		//			System.out.println("set jpg name path to jpg name text view");
+		//
+		//			BitmapFactory.Options options = new BitmapFactory.Options();
+		//			System.out.println("set bitmap factory options");
+		//			//	    options.inSampleSize = 2;
+		//			Bitmap bm = BitmapFactory.decodeFile(myJpgPath, options);
+		//			System.out.println("decode file");
+		//			jpgView.setImageBitmap(bm); 
+		//			System.out.println("set image view");
+		//		}
+		//
+		//		server = new Server(getAndroidID(), locationManager.getLongitude(),
+		//				locationManager.getLatitude(), ZOOM);
+		////		while(true) {
+		//			server.runServerLoop(locationManager.getLongitude(), locationManager.getLatitude());
+		////		}
+
+
+
+		/*
+    tv.setText(tv.getText() + "Initial Lat: " + locationManager.getLatitude() +
+    		"Initial Long: " + locationManager.getLongitude());
+    setContentView(tv);
+		 */
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 @Override
+	protected Void doInBackground(Void... params) {
+		// TODO Auto-generated method stub
+		while(true) {
+			server.runServerLoop(locationManager.getLongitude(), locationManager.getLatitude());
+			onProgressUpdate();
+			try { Thread.sleep(500); }
+			catch (InterruptedException e) { e.printStackTrace(); }
+		}
+//		return server.getServerResponse();
+	}
+	
+	@Override
+	protected void onProgressUpdate(Void... params) {
+		super.textView.setText(server.getServerResponse());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+		/*    
+  private native String stringFromJNI();
+  private native void logThis(String toLog);
+  static {
+    System.loadLibrary("server");
+  }
+	 */
